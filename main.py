@@ -106,9 +106,9 @@ DRAW_SCREEN = {
 
 def main():
     RUN = True
-    st = time.clock()
+    st = time.process_time()
     while (RUN):
-        cur_st = time.clock()
+        cur_st = time.process_time()
         for event in pygame.event.get():
             if (event.type == pygame.KEYDOWN):
                 if (vars.screen_num == 0 and event.key == pygame.K_SPACE):
@@ -140,7 +140,7 @@ def main():
                 RUN = False
         draw_main_things()
         DRAW_SCREEN['drawscreen' + str(vars.screen_num)]()
-        vars.balance += vars.agent_DPS * (math.trunc(time.clock() - st) - math.trunc(cur_st - st))
+        vars.balance += vars.agent_DPS * (math.trunc(time.process_time() - st) - math.trunc(cur_st - st))
         pygame.display.flip()
     pygame.quit()
 
