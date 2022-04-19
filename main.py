@@ -17,11 +17,20 @@ def draw_main_things():
     all_sprites.draw(vars.screen)
     font = pygame.font.Font(None, 40)
     balance_text = font.render(str(vars.balance), True, vars.COLORS['WHITE'])
-    vars.screen.blit(balance_text, (360 - vars.centar_balance * len(str(vars.balance)), 40))
-    damage_per_click_text = font.render("Damage per click " + str(vars.DPC), True, vars.COLORS['WHITE'])
-    damage_per_second_text = font.render("Agents help per second " + str(vars.agent_DPS), True, vars.COLORS['WHITE'])
-    vars.screen.blit(damage_per_click_text, (240 - vars.centar_balance * len(str(vars.DPC)), 850))
-    vars.screen.blit(damage_per_second_text, (200 - vars.centar_balance * len(str(vars.agent_DPS)), 900))
+    vars.screen.blit(balance_text,
+                     (360 - vars.centar_balance * len(str(vars.balance)), 40))
+    damage_per_click_text = font.render(
+        "Damage per click " + str(vars.DPC),
+        True, vars.COLORS['WHITE'])
+    damage_per_second_text = font.render(
+        "Agents help per second " + str(vars.agent_DPS),
+        True, vars.COLORS['WHITE'])
+    vars.screen.blit(
+        damage_per_click_text,
+        (240 - vars.centar_balance * len(str(vars.DPC)), 850))
+    vars.screen.blit(
+        damage_per_second_text,
+        (200 - vars.centar_balance * len(str(vars.agent_DPS)), 900))
 
 
 def draw_screen0():
@@ -56,9 +65,12 @@ def draw_screen1():
         page_num = font.render(str(i + 1), True, vars.COLORS['BLACK'])
         vars.screen.blit(page_num, (i * 60 + 134, 140))
     font = pygame.font.Font(None, 40)
-    weapon_cost_text = font.render("Cost " + str(vars.WEAPON_COST[vars.weapon_num]), True, vars.COLORS['WHITE'])
-    weapon_DPC_text = font.render("Damage per click " + str(vars.WEAPON_DPC[vars.weapon_num]), True,
-                                  vars.COLORS['WHITE'])
+    weapon_cost_text = font.render(
+        "Cost " + str(vars.WEAPON_COST[vars.weapon_num]),
+        True, vars.COLORS['WHITE'])
+    weapon_DPC_text = font.render(
+        "Damage per click " + str(vars.WEAPON_DPC[vars.weapon_num]),
+        True, vars.COLORS['WHITE'])
     vars.screen.blit(weapon_cost_text, (250, vars.HEIGHT - 300))
     vars.screen.blit(weapon_DPC_text, (190, vars.HEIGHT - 250))
     font = pygame.font.Font(None, 30)
@@ -81,9 +93,12 @@ def draw_screen2():
             all_sprites.add(page_skin_non_active)
     all_sprites.draw(vars.screen)
     font = pygame.font.Font(None, 40)
-    agent_cost_text = font.render("Cost " + str(vars.AGENT_COST[vars.agent_num]), True, vars.COLORS['WHITE'])
-    agent_DPS_text = font.render("Agent helps per second " + str(vars.AGENT_DPS[vars.agent_num]), True,
-                                 vars.COLORS['WHITE'])
+    agent_cost_text = font.render(
+        "Cost " + str(vars.AGENT_COST[vars.agent_num]),
+        True, vars.COLORS['WHITE'])
+    agent_DPS_text = font.render(
+        "Agent helps per second " + str(vars.AGENT_DPS[vars.agent_num]),
+        True, vars.COLORS['WHITE'])
     vars.screen.blit(agent_cost_text, (250, vars.HEIGHT - 300))
     vars.screen.blit(agent_DPS_text, (150, vars.HEIGHT - 250))
     font = pygame.font.Font(None, 30)
@@ -115,9 +130,12 @@ def main():
                     vars.balance += vars.DPC
 
                 for i in range(9):
-                    if (vars.screen_num == 1 and event.key == vars.HOT_KEYS[i + 1] and vars.max_bought_weapon + 1 >= i):
+                    if (vars.screen_num == 1 and
+                            event.key == vars.HOT_KEYS[i + 1] and
+                            vars.max_bought_weapon + 1 >= i):
                         vars.weapon_num = i
-                    if (vars.screen_num == 2 and event.key == vars.HOT_KEYS[i + 1]):
+                    if (vars.screen_num == 2 and
+                            event.key == vars.HOT_KEYS[i + 1]):
                         vars.agent_num = i
 
                 if (vars.screen_num == 2 and event.key == pygame.K_b):
@@ -140,7 +158,8 @@ def main():
                 RUN = False
         draw_main_things()
         DRAW_SCREEN['drawscreen' + str(vars.screen_num)]()
-        vars.balance += vars.agent_DPS * (math.trunc(time.process_time() - st) - math.trunc(cur_st - st))
+        vars.balance += vars.agent_DPS * (
+                math.trunc(time.process_time() - st) - math.trunc(cur_st - st))
         pygame.display.flip()
     pygame.quit()
 
