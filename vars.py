@@ -1,13 +1,10 @@
 import pygame
 import os
 
-
 COLORS = {
-    'BLACK' : (0, 0, 0),
-    'WHITE' : (255, 255, 255)
+    'BLACK': (0, 0, 0),
+    'WHITE': (255, 255, 255)
 }
-
-
 
 WIDTH = 720
 HEIGHT = 960
@@ -65,7 +62,6 @@ WEAPON_DPC = {
     7: 1307,
     8: 12345
 }
-
 
 AGENT_COST = {
     0: 100,
@@ -125,4 +121,3 @@ screen_num = 0
 weapon_num = 0
 agent_num = 0
 max_bought_weapon = -1
-

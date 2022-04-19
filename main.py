@@ -83,7 +83,7 @@ def draw_screen2():
     font = pygame.font.Font(None, 40)
     agent_cost_text = font.render("Cost " + str(vars.AGENT_COST[vars.agent_num]), True, vars.COLORS['WHITE'])
     agent_DPS_text = font.render("Agent helps per second " + str(vars.AGENT_DPS[vars.agent_num]), True,
-                                  vars.COLORS['WHITE'])
+                                 vars.COLORS['WHITE'])
     vars.screen.blit(agent_cost_text, (250, vars.HEIGHT - 300))
     vars.screen.blit(agent_DPS_text, (150, vars.HEIGHT - 250))
     font = pygame.font.Font(None, 30)

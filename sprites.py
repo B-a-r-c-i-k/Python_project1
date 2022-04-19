@@ -9,14 +9,13 @@ class MainSkin(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (vars.WIDTH / 2, vars.HEIGHT / 2)
 
+
 class AgentSkin(pygame.sprite.Sprite):
     def __init__(self, skin_num):
         pygame.sprite.Sprite.__init__(self)
         self.image = vars.AGENT_IMAGES[str(max(0, skin_num))]
         self.rect = self.image.get_rect()
         self.rect.center = (vars.WIDTH / 2 - 50, vars.HEIGHT / 2 - 50)
-
-
 
 
 class TopStripe(pygame.sprite.Sprite):
@@ -57,6 +56,7 @@ class RightArrow(pygame.sprite.Sprite):
         self.image = vars.RIGHTARROW
         self.rect = self.image.get_rect()
         self.rect.center = (640, vars.HEIGHT - 145 / 2)
+
 
 class Page(pygame.sprite.Sprite):
     def __init__(self, width, height, num):
