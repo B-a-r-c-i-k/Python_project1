@@ -8,6 +8,8 @@ git checkout dev
 
 source venv/Scripts/activate
 
+pip install pygame
+
 python3 main.py
 
 # Keys
@@ -15,3 +17,4 @@ python3 main.py
 1) left, right keys
 2) b
 3) 0-9 nums
+4) space - to click
